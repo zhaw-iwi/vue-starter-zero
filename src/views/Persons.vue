@@ -10,7 +10,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr :key="person.id" v-for="person in persons">
+        <tr v-bind:key="person.id" v-for="person in persons">
           <td>
             <router-link v-bind:to="'/persons/' + person.id">
               {{ person.id }}
@@ -21,8 +21,6 @@
           </td>
           <td>
             {{ person.birthdate }}
-            <!-- convert person.birthdate from seconds to a date string -->
-            <!-- {{ (new Date(person.birthdate * 1000)).toISOString() }} -->
           </td>
         </tr>
       </tbody>
@@ -32,7 +30,6 @@
 </template>
 
 <script>
-//import axios from "axios";
 
 export default {
   data: function () {
@@ -51,10 +48,5 @@ export default {
       ],
     };
   },
-/*   mounted: function () {
-    axios.get("http://localhost:8080/infections/persons").then((response) => {
-      this.persons = response.data;
-    });
-  }, */
 };
 </script>
